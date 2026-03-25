@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | TechAI Advisors</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #4e8e95, #4e8e95);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      width: 100%;
+      background: whitesmoke;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #5500ff;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar .nav-links li {
+      display: inline;
+    }
+
+    .navbar .nav-links a {
+      text-decoration: none;
+      color: #333333;
+      font-size: 16px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #4800ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 20px;
+      background: white;
+      margin-top: 60px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 900px;
+      margin: 100px auto 20px;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #3319c4;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #7F00FF, #E100FF);
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #6000D4, #BF00D4);
+    }
+
+    /* Section Styles */
+    .features, .goal-container, .portfolio-container, .partners-container, .contact-container {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .features h2, .goal-container h2, .portfolio-container h2, .partners-container h2, .contact-container h2 {
+      color: #7F00FF;
+      margin-bottom: 15px;
+    }
+
+    .feature-grid, .portfolio-grid, .partners-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-item {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .feature-item, .portfolio-item, .partner-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+    }
+
+    .feature-item i, .partner-item i {
+      font-size: 30px;
+      color: #7F00FF;
+      margin-bottom: 10px;
+    }
+
+    /* Team Section */
+    .team-container {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .team-container h2 {
+      color: #7F00FF;
+      margin-bottom: 20px;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .team-member {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .team-member h3 {
+      font-size: 20px;
+      color: #333;
+      margin: 10px 0 5px;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      color: #777;
+    }
+
+    /* Contact Form */
+    .contact-container form input,
+    .contact-container form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .contact-container form button {
+      background: #7F00FF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .contact-container form button:hover {
+      background: #6000D4;
+    }
+
+    /* Success message */
+    .success-msg {
+      display: none;
+      background: #e6ffed;
+      color: #2d7a4f;
+      border: 1px solid #a3d9b1;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 20px;
+      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .feature-grid, .portfolio-grid, .partners-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .hero p  { font-size: 16px; }
+      .btn     { width: 100%; font-size: 16px; padding: 12px; }
+      .feature-item, .portfolio-item, .partner-item { width: 100%; }
+      .contact-container form input,
+      .contact-container form textarea { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">TECHAI ADVISORS</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="logo.jpg" alt="TechAI Advisors Logo" style="height: 250px;">
+    <h1>We are TechAI Advisors - Your growth accelerator</h1>
+    <p>Empowering startups to thrive in a global marketplace. We integrate
+    industry expertise, AI solutions, and extensive networking opportunities
+    to drive innovation, accelerate growth, and ensure sustainable success.</p>
+    <a href="signup.jsp" class="btn">Get Started</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <i class="fas fa-tasks"></i>
+        <h3>Strategy</h3>
+        <p>Planned actions designed to achieve specific business goals effectively.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-globe"></i>
+        <h3>Global Market Reach</h3>
+        <p>Expanding business presence and customer base across international markets.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-hand-holding-usd"></i>
+        <h3>Funding</h3>
+        <p>Providing financial resources to support business growth and operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goal -->
+  <section class="goal-container">
+    <h2>Startup Portfolios & what the startup CEOs talk about us</h2>
+    <p>Showcasing our diverse range of innovative startups across industries.
+    Hear from visionary startup CEOs as they share their success stories and experiences with us.</p>
+  </section>
+
+  <!-- Startup Portfolios -->
+  <section class="portfolio-container" id="portfolio">
+    <h2>Startup Portfolios</h2>
+    <div class="portfolio-grid">
+      <a href="https://www.medeskin.ai" target="_blank" class="portfolio-item">
+        <h3>Medeskin AI</h3>
+        <p>AI-powered skincare platform offering accurate diagnosis and treatment tracking for 40+ skin conditions and cancers.</p>
+      </a>
+      <a href="https://paraserp.com" target="_blank" class="portfolio-item">
+        <h3>Srishti Software</h3>
+        <p>Provider of hospital management information systems (HMIS) with patient lifecycle, clinical, and administrative modules across multiple countries.</p>
+      </a>
+      <a href="https://www.invenzolabs.com" target="_blank" class="portfolio-item">
+        <h3>Invenzo Labs</h3>
+        <p>Omni-channel retail SaaS platform enabling businesses with customer engagement, sales, inventory, and ecosystem integration.</p>
+      </a>
+      <a href="https://www.superseva.com" target="_blank" class="portfolio-item">
+        <h3>Super Seva</h3>
+        <p>Enterprise support services company offering HR, finance, procurement, and managed customer service solutions.</p>
+      </a>
+      <a href="https://tilbury.ai" target="_blank" class="portfolio-item">
+        <h3>iMAYAS ITECH</h3>
+        <p>Cloud-native ERP for SMBs delivering modular, scalable, and multi-device business process automation.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners-container" id="partners">
+    <h2>Our Partners</h2>
+    <div class="partners-grid">
+      <div class="partner-item">
+        <i class="fas fa-building"></i>
+        <h3>Corporate Partners</h3>
+        <p>Strong collaborations with leading enterprises worldwide.</p>
+      </div>
+      <div class="partner-item">
+        <i class="fas fa-handshake"></i>
+        <h3>Channel Partners</h3>
+        <p>Expanding networks and market presence together.</p>
+      </div>
+      <div class="partner-item">
+        <i class="fas fa-users"></i>
+        <h3>Investors</h3>
+        <p>Trusted by global investors who believe in our startups.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-container" id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="JS Photo.jpg" alt="John Selvaraj">
+        <h3>John Selvaraj</h3>
+        <p>VP Sales</p>
+      </div>
+      <div class="team-member">
+        <img src="Profile Pic.jpg" alt="Mansoor Ahmad">
+        <h3>Mansoor Ahmad</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-member">
+        <img src="danishh.jpg" alt="Danish Farooqui">
+        <h3>Danish Farooqui</h3>
+        <p>Executive Technologies</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Contact Section — Netlify Forms -->
+  <section class="contact-container" id="contact">
+    <h2>Contact Us</h2>
+
+    <form
+      id="contactForm"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <!-- Required hidden field for Netlify -->
+      <input type="hidden" name="form-name" value="contact">
+
+      <!-- Honeypot spam protection (hidden from humans) -->
+      <p style="display:none;">
+        <label>Don't fill this out: <input name="bot-field"></label>
+      </p>
+
+      <input type="text"  name="from_name"  placeholder="Your Name"    required>
+      <input type="email" name="from_email" placeholder="Your Email"   required>
+      <textarea rows="4"  name="message"    placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Success message shown after submit -->
+    <div class="success-msg" id="successMsg">
+      ✅ Thank you! Your message has been sent. We'll get back to you soon.
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 TechAI Advisors | All Rights Reserved</p>
+  </footer>
+
+  <!-- ✅ Handle Netlify form success via URL param -->
+  <script>
+    // Netlify redirects back to the page with ?success=true after submission
+    // This shows a friendly success message instead of a blank page
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === 'true') {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMsg').style.display  = 'block';
+    }
+
+    // Intercept form submit and append ?success=true to redirect URL
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const data = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      })
+      .then(() => {
+        form.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      })
+      .catch(() => {
+        alert('❌ Something went wrong. Please try again.');
+      });
+    });
+  </script>
+
+</body>
+</html>
